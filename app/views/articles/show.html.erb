@@ -40,11 +40,12 @@
 				<div class="form-group">
 					<div class="control-label col-md-2">
 						<%= f.label :body, "New Comment" %>
+					</div>
 						<div class="col-md-10">
 							<%= f.text_area :body, rows: 10, class: "form-control", placeholder: "Your comment" %>
 						</div>
 					</div>
-
+					<br>
 					<div class="form-group">
 						<div class="col-md-offset-2 col-md-10">
 							<%= f.submit "Add Comment", class: "btn btn-primary btn-lg pull-right" %>
