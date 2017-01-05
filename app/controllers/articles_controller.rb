@@ -2,6 +2,7 @@ class ArticlesController < ApplicationController
 	before_action :find_article, only: [:show]
 
   def index
+		@articles = Article.all
   end
 
 	def new
