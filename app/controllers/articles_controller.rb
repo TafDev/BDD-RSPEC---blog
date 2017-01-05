@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-	before_action :find_article, only: [:show, :edit, :update]
+	before_action :find_article, only: [:show, :edit, :update, :destroy]
 
   def index
 		@articles = Article.all
@@ -37,6 +37,13 @@ class ArticlesController < ApplicationController
   def show
 
   end
+
+	def destroy
+		if @article.destroy
+			flash[:success] = "Article has been deleted"
+			redirect_to articles_path
+		end
+	end
 
 	protected
 	def resource_not_found
