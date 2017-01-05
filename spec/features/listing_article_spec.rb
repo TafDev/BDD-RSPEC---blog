@@ -18,6 +18,18 @@ RSpec.feature "Listing Articles" do
 		expect(page).not_to have_link("New Article")
 	end
 
+	scenario "lists all articles when user signed in" do
+		login_as(@john)
+		visit '/'
+		expect(page).to have_content(@article1.title)
+		expect(page).to have_content(@article1.body)
+		expect(page).to have_content(@article2.title)
+		expect(page).to have_content(@article2.body)
+		expect(page).to have_link(@article1.title)
+		expect(page).to have_link(@article2.title)
+		expect(page).to have_link("New Article")
+	end
+
 	scenario "user lists all articles" do
 		visit '/'
 		expect(page).to have_content(@article1.title)
